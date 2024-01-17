@@ -1,6 +1,9 @@
 import os
-def clear():
+
+
+def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 logo = '''
                          ___________
@@ -15,13 +18,9 @@ logo = '''
                        .-------------.
                       /_______________\\
 '''
-print(logo)
-print("Welcome to secret auction program!")
 
-active_bidding = {}
-bidding_continue = False
 
-def bidding_winner (bidding_record):
+def bidding_winner(bidding_record):
     highest_bid = 0
     winner = ""
     for bidder in bidding_record:
@@ -30,6 +29,13 @@ def bidding_winner (bidding_record):
             highest_bid = bid_amount
             winner = bidder
     print(f"The winner is {winner} with a bid of ${highest_bid}.")
+
+
+print(logo)
+print("Welcome to secret auction program!")
+
+active_bidding = {}
+bidding_continue = False
 
 while not bidding_continue:
     name = input("What is your name?\n").lower()
@@ -41,8 +47,7 @@ while not bidding_continue:
     elif should_continue == "yes":
         active_bidding.clear()
 
-#Check clear solutiom in Day 15
+    clear_console()
+    print(logo)
 
-
-
-
+bidding_winner(active_bidding)
